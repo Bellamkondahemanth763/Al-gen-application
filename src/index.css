@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "VT323", "Space Grotesk", sans-serif;
+  --font-display: "VT323", sans-serif;
+  --font-mono: "VT323", monospace;
+}
+
+@layer utilities {
+  .glitch-text {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 81, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 255, 0.75),
+      0.025em 0.05em 0 rgba(255, 255, 0, 0.75);
+    animation: glitch 500ms infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 81, 0.75),
+        -0.05em -0.025em 0 rgba(0, 255, 255, 0.75),
+        -0.025em 0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 81, 0.75),
+        -0.05em -0.025em 0 rgba(0, 255, 255, 0.75),
+        -0.025em 0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 81, 0.75),
+        0.025em 0.025em 0 rgba(0, 255, 255, 0.75),
+        -0.05em -0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 81, 0.75),
+        0.025em 0.025em 0 rgba(0, 255, 255, 0.75),
+        -0.05em -0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 81, 0.75),
+        0.05em 0 0 rgba(0, 255, 255, 0.75),
+        0 -0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 81, 0.75),
+        0.05em 0 0 rgba(0, 255, 255, 0.75),
+        0 -0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(255, 0, 81, 0.75),
+        -0.025em -0.025em 0 rgba(0, 255, 255, 0.75),
+        -0.025em -0.05em 0 rgba(255, 255, 0, 0.75);
+    }
+  }
+
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scan 8s linear infinite;
+  }
+
+  @keyframes scan {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+  }
+}
+
